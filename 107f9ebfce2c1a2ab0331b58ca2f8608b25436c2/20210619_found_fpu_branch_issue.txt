@@ -1,0 +1,12 @@
+It's found in 20210619 fpu branch kernel:
+https://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git
+branch: origin/x86/fpu
+last commit:
+"
+commit 2299e66e766a7cdca8aafc36b59ada8782d26233 (HEAD -> 0618, origin/x86/fpu)
+Author: Thomas Gleixner <tglx@linutronix.de>
+Date:   Wed Jun 16 15:47:21 2021 +0200
+
+    x86/fpu/signal: Let xrstor handle the features to init
+"
+Found in syzkaller QEMU vm tests.

@@ -1,0 +1,47 @@
+------------[ cut here ]------------
+Bad FPU state detected at __restore_fpregs_from_fpstate+0xa0/0xf0, reinitializing FPU registers.
+WARNING: CPU: 1 PID: 24115 at arch/x86/mm/extable.c:66 ex_handler_fprestore+0xde/0x100
+Modules linked in:
+CPU: 1 PID: 24115 Comm: syz-executor.0 Not tainted 5.13.0-rc5-t2+ #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.14.0-0-g155821a1990b-prebuilt.qemu.org 04/01/2014
+RIP: 0010:ex_handler_fprestore+0xde/0x100
+Code: e8 47 4b f4 ff b8 01 00 00 00 5b 5d 41 5c c3 e8 88 12 2f 00 48 89 de 48 c7 c7 20 f7 85 9a c6 05 f9 1b 8e 04 01 e8 05 0b c4 02 <0f> 0b eb 9b 48 89 df e8 26 2c 6f 00 e9 54 ff ff ff e8 2c 2c 6f 00
+RSP: 0018:ffff88803b757cd0 EFLAGS: 00010082
+RAX: 0000000000000000 RBX: ffffffff974bd0d0 RCX: ffffffff977067c1
+RDX: ffff888038a39a00 RSI: 0000000000000000 RDI: ffff88805e5207d8
+RBP: ffff88803b757dc8 R08: ffffed100bca40fc R09: ffffed100bca40fc
+R10: ffff88805e5207db R11: ffffed100bca40fb R12: ffffffff9b2f5d40
+R13: 0000000000000000 R14: 0000000000000000 R15: ffffffff9b2f5d40
+FS:  00007fe3f2d40700(0000) GS:ffff88805e500000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fe3f2d409d0 CR3: 0000000039f64004 CR4: 0000000000370ee0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+Call Trace:
+ fixup_exception+0xa0/0xd0
+ exc_general_protection+0xc7/0x2a0
+ asm_exc_general_protection+0x1e/0x30
+RIP: 0010:__restore_fpregs_from_fpstate+0xa0/0xf0
+Code: db 44 24 20 e8 d1 c6 3a 00 0f 1f 44 00 00 e8 c7 c6 3a 00 e8 c2 c6 3a 00 48 89 ea 48 8b 7c 24 20 89 e8 48 c1 ea 20 48 0f c7 1f <e8> ab c6 3a 00 48 b8 00 00 00 00 00 fc ff df 48 c7 04 03 00 00 00
+RSP: 0018:ffff88803b757e78 EFLAGS: 00010046
+RAX: 000000000000001f RBX: 1ffff110076eafcf RCX: ffffffff974bd0be
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffff888038a3af40
+RBP: 000000000000001f R08: ffffed1007147341 R09: ffffed1007147341
+R10: ffff888038a39a07 R11: ffffed1007147340 R12: 0000000000000001
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ switch_fpu_return+0xb6/0x220
+ exit_to_user_mode_prepare+0x158/0x190
+ syscall_exit_to_user_mode+0x18/0x30
+ do_syscall_64+0x48/0xb0
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x4836eb
+Code: 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 <0f> 05 48 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b4 ff ff ff f7 d8 64 89
+RSP: 002b:00007fe3f2d40198 EFLAGS: 00000246 ORIG_RAX: 00000000000000ca
+RAX: 00000000000000ca RBX: 000000000059bf80 RCX: 00000000004836ed
+RDX: 0000000000000000 RSI: 0000000000000080 RDI: 000000000059bf88
+RBP: 000000000059bf88 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 000000000059bf8c
+R13: 00007fff780a358f R14: 00007fff780a3720 R15: 00007fe3f2d40700
+---[ end trace fed4836270a17623 ]---
+fuse: Bad value for 'fd'
+fuse: Bad value for 'fd'
