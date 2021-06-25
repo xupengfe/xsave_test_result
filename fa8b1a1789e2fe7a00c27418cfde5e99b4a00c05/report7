@@ -1,0 +1,23 @@
+INFO: task syz-executor.0:9098 blocked for more than 122 seconds.
+      Not tainted 5.13.0-rc5-t+ #1
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz-executor.0  state:D stack:27544 pid: 9098 ppid:   494 flags:0x00004004
+Call Trace:
+ __schedule+0xa92/0x1e60
+ schedule+0xbd/0x250
+ schedule_preempt_disabled+0xa/0x10
+ __mutex_lock.isra.11+0x3fb/0xab0
+ mutex_lock+0xa2/0xe0
+ del_gendisk+0x1d9/0x820
+ loop_remove+0x39/0xc0
+ loop_control_ioctl+0x303/0x340
+ __x64_sys_ioctl+0x15a/0x1d0
+ do_syscall_64+0x3c/0xb0
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x4836ed
+RSP: 002b:00007f35fe5b9118 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 000000000059bf80 RCX: 00000000004836ed
+RDX: 000000000000000b RSI: 0000000000004c81 RDI: 0000000000000003
+RBP: 000000000059bf80 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 000000000059bf8c
+R13: 00007ffcc40b6bbf R14: 000000000059bf80 R15: 00007f35fe5b9700
